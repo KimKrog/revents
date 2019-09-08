@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Menu, Container } from 'semantic-ui-react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { Menu, Container, Button } from 'semantic-ui-react';
+import { NavLink, withRouter, Link } from 'react-router-dom';
 import SignedInMenu from '../Menus/SignedInMenu';
 import SignedOutMenu from '../Menus/SignedOutMenu';
 
@@ -27,6 +27,17 @@ class NavBar extends Component {
           </Menu.Item>
           <Menu.Item as={NavLink} to='/events' name='Events' />
           <Menu.Item as={NavLink} to='/people' name='People' />
+          <Menu.Item as={NavLink} to='/test' name='Test' />
+          <Menu.Item>
+            <Button
+              as={Link}
+              to='/createEvent'
+              floated='right'
+              positive
+              inverted
+              content='Create Event'
+            />
+          </Menu.Item>
           {authenticated ? (
             <SignedInMenu signOut={this.handleSignOut} />
           ) : (
